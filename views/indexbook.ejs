@@ -1,0 +1,59 @@
+<!-- <div>title: <%= title %> </div>
+<div>description: <%= description %> </div>
+<div>image: <%= image %> </div>
+<div>authorId: <%= authorId %> </div>
+<div>bookId: <%= bookId %> </div> -->
+
+
+<style>
+    .back-button {
+        text-decoration: none;
+        color: #000;
+        font-size: 24px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+    }
+
+    .back-button::before {
+        content: "<";
+        margin-right: 8px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .book {
+        display: flex;
+    }
+
+    .book__image-wrapper {
+        margin-right: 24px;
+    }
+
+    .book__image-wrapper img {
+        border-radius: 16px;
+        object-fit: cover;
+    }
+
+    .book__description {
+        font-size: 24px;
+    }
+</style>
+
+<a class="back-button" href="/books">
+    Back
+</a>
+
+<div class="book">
+    <div class="book__image-wrapper">
+        <img src="<%= image %>" height="450">
+    </div>
+
+    <div>
+        <h1><%= title %></h1>
+
+        <span class="book__description">
+            <%= description %> 
+        </span>
+    </div>
+</div>

@@ -19,19 +19,19 @@ app.set('view engine', 'ejs'); // подключение модуля ejs в к�
 
 
 //Роуты
+
+//АВТОРЫ
 app.get('/profile/:id', async (req, res) => {// Роут для ejs
   try {
     const users = await request('http://localhost:3000/users', { json: true })
-    const user = users.find(user => user.id == req.params.id);
-    res.render('index', { email: user.email, id: user.id });
-    res.send(users)
-
+    const user = users.find(user => user._id == req.params.id);
+    res.render('indexuser', { email: user.email, id: user._id });
+   
   } catch (error) {
-    console.log('catch');
+    console.log(error);
     res.send('Что-то пошло не так')
   }
 })
-
 
 
 app.get('/profiles', async (req, res) => { // Роут для ejs
@@ -39,9 +39,36 @@ app.get('/profiles', async (req, res) => { // Роут для ejs
     const users = await request(
       'http://localhost:3000/users', { json: true })
     
-res.render('indexpage', { users });
+res.render('indexUsers', { users });
   } catch (error) {
-  console.log('catch');
+  console.log(error);
+  res.send('Что-то пошло не так');
+}
+});
+
+//КНИГИ
+
+app.get('/book/:id', async (req, res) => {// Роут для ejs
+  try {
+    const books = await request('http://localhost:3000/books', { json: true })
+    const book = books.find(book => book._id == req.params.id);
+    // console.log(book)
+    res.render('indexbook', { bookId: book._id, title: book.title, description: book.description, image: book.image, authorId: book.authorId });
+   
+  } catch (error) {
+    console.log(error);
+    res.send('Что-то пошло не так')
+  }
+})
+
+app.get('/books', async (req, res) => { // Роут для ejs
+  try {
+    const books = await request(
+      'http://localhost:3000/books', { json: true })
+    console.log(books)
+res.render('indexBooks', { books });
+  } catch (error) {
+  console.log(error);
   res.send('Что-то пошло не так');
 }
 });

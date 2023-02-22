@@ -1,0 +1,67 @@
+<style>
+    .books-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .books {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 800px;
+        grid-gap: 16px;
+    }
+
+    .book {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-decoration: none;
+        color: #000;
+        font-size: 18px;
+        transition: 0.12s ease-in-out;
+    }
+
+    .book:hover {
+        transform: scale(1.05);
+    }
+
+    .book:active {
+        transform: scale(0.95);
+    }
+
+    .book__image-wrapper {
+        width: 150px;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<div class="books-wrapper">
+    <div class="books">
+        <a class="book" href="/books/1">
+            <div class="book__image-wrapper">
+                <img src="https://image.ceneostatic.pl/data/products/45863467/i-harry-potter-i-kamien-filozoficzny-tom-1.jpg" height="250">
+            </div>
+
+            <div>
+                <div>Harry Potter</div>
+            </div>
+        </a>
+
+        <a class="book" href="/books/2">
+            <div class="book__image-wrapper">
+                <img src="https://m.media-amazon.com/images/I/A1aDb5U5myL.jpg" height="250">
+            </div>
+    
+            <div>
+                <div>War and Peace</div>
+            </div>
+        </a>
+    </div>
+</div>

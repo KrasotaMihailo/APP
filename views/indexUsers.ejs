@@ -1,9 +1,9 @@
 <div>
     <% users.forEach (function (user) { %>
-        <a href="/profile/<%= user.id %>">
+        <a href="/profile/<%= user._id %>">
             <div>ID:</div>
             <div>
-                <%= user.id %>
+                <%= user._id %>
             </div>
             <div>email:</div>
             <div>
@@ -13,3 +13,4 @@
         <% }); %>
 
 </div>
+
